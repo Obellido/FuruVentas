@@ -1,0 +1,10 @@
+D:\DSD\EntityServices\EDM\bin\Debug\EDM.exe.config
+D:\DSD\EntityServices\EDM\bin\Debug\EDM.exe
+D:\DSD\EntityServices\EDM\bin\Debug\EDM.pdb
+D:\DSD\EntityServices\EDM\bin\Debug\EntityFramework.dll
+D:\DSD\EntityServices\EDM\bin\Debug\EntityFramework.SqlServer.dll
+D:\DSD\EntityServices\EDM\bin\Debug\EntityFramework.xml
+D:\DSD\EntityServices\EDM\bin\Debug\EntityFramework.SqlServer.xml
+D:\DSD\EntityServices\EDM\obj\Debug\EDM.csprojResolveAssemblyReference.cache
+D:\DSD\EntityServices\EDM\obj\Debug\EDM.exe
+D:\DSD\EntityServices\EDM\obj\Debug\EDM.pdb
