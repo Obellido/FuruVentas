@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ProductoWS" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:60904/ProductoWS.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:60904/ProductoWS.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:60904/ProductoWS.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/EntityServices" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IProductoWS_ObtenerProducto_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerProducto" />
+  </wsdl:message>
+  <wsdl:message name="IProductoWS_ObtenerProducto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerProductoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductoWS_GuardarProducto_InputMessage">
+    <wsdl:part name="parameters" element="tns:GuardarProducto" />
+  </wsdl:message>
+  <wsdl:message name="IProductoWS_GuardarProducto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GuardarProductoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductoWS_ModificarProducto_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarProducto" />
+  </wsdl:message>
+  <wsdl:message name="IProductoWS_ModificarProducto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarProductoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductoWS_EliminarProducto_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarProducto" />
+  </wsdl:message>
+  <wsdl:message name="IProductoWS_EliminarProducto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarProductoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductoWS_ListaPagProducto_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListaPagProducto" />
+  </wsdl:message>
+  <wsdl:message name="IProductoWS_ListaPagProducto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListaPagProductoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IProductoWS">
+    <wsdl:operation name="ObtenerProducto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductoWS/ObtenerProducto" message="tns:IProductoWS_ObtenerProducto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductoWS/ObtenerProductoResponse" message="tns:IProductoWS_ObtenerProducto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GuardarProducto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductoWS/GuardarProducto" message="tns:IProductoWS_GuardarProducto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductoWS/GuardarProductoResponse" message="tns:IProductoWS_GuardarProducto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarProducto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductoWS/ModificarProducto" message="tns:IProductoWS_ModificarProducto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductoWS/ModificarProductoResponse" message="tns:IProductoWS_ModificarProducto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarProducto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductoWS/EliminarProducto" message="tns:IProductoWS_EliminarProducto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductoWS/EliminarProductoResponse" message="tns:IProductoWS_EliminarProducto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaPagProducto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductoWS/ListaPagProducto" message="tns:IProductoWS_ListaPagProducto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductoWS/ListaPagProductoResponse" message="tns:IProductoWS_ListaPagProducto_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IProductoWS" type="tns:IProductoWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ObtenerProducto">
+      <soap:operation soapAction="http://tempuri.org/IProductoWS/ObtenerProducto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarProducto">
+      <soap:operation soapAction="http://tempuri.org/IProductoWS/GuardarProducto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarProducto">
+      <soap:operation soapAction="http://tempuri.org/IProductoWS/ModificarProducto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarProducto">
+      <soap:operation soapAction="http://tempuri.org/IProductoWS/EliminarProducto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaPagProducto">
+      <soap:operation soapAction="http://tempuri.org/IProductoWS/ListaPagProducto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProductoWS">
+    <wsdl:port name="BasicHttpBinding_IProductoWS" binding="tns:BasicHttpBinding_IProductoWS">
+      <soap:address location="http://localhost:60904/ProductoWS.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
