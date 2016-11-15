@@ -8,3 +8,6 @@ D:\DSD\EntityServices\EDM\bin\Debug\EntityFramework.SqlServer.xml
 D:\DSD\EntityServices\EDM\obj\Debug\EDM.csprojResolveAssemblyReference.cache
 D:\DSD\EntityServices\EDM\obj\Debug\EDM.exe
 D:\DSD\EntityServices\EDM\obj\Debug\EDM.pdb
+D:\DS_PROYECTO\EntityServices\EDM\bin\Debug\EDM.exe.config
+D:\DS_PROYECTO\EntityServices\EDM\obj\Debug\EDM.exe
+D:\DS_PROYECTO\EntityServices\EDM\obj\Debug\EDM.pdb

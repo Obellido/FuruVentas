@@ -15,7 +15,17 @@ namespace EntityServices
         [OperationContract]
         ClienteContract ObtenerCliente(int codigo);
 
-        
+
+        [OperationContract]
+        int GuardarCliente(ClienteContract cliente);
+
+        [OperationContract]
+        string ModificarCliente(ClienteContract cliente);
+
+        [OperationContract]
+        string EliminarCliente(int codigo);
+
+
     }
     
 }
