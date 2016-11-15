@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="37fe565d-5505-455b-af6d-89fbf25278b2" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:60904/ProductoWS.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ProductoWS.xsd" MetadataType="Schema" ID="1cef8f11-19ca-4b13-a8db-fdd6f02e4a34" SourceId="1" SourceUrl="http://localhost:60904/ProductoWS.svc?xsd=xsd1" />
+    <MetadataFile FileName="ProductoWS1.xsd" MetadataType="Schema" ID="b10f2890-7a15-4ce2-8d55-7d9fa3d12d0d" SourceId="1" SourceUrl="http://localhost:60904/ProductoWS.svc?xsd=xsd0" />
+    <MetadataFile FileName="ProductoWS2.xsd" MetadataType="Schema" ID="42399f16-ae0f-4360-9aff-c33d05d2b2d8" SourceId="1" SourceUrl="http://localhost:60904/ProductoWS.svc?xsd=xsd2" />
+    <MetadataFile FileName="ProductoWS.wsdl" MetadataType="Wsdl" ID="88d44801-b34a-41ea-b10d-47333445d327" SourceId="1" SourceUrl="http://localhost:60904/ProductoWS.svc?wsdl" />
+    <MetadataFile FileName="ProductoWS.disco" MetadataType="Disco" ID="802b0bad-51f1-461b-8482-28740747f5d1" SourceId="1" SourceUrl="http://localhost:60904/ProductoWS.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
