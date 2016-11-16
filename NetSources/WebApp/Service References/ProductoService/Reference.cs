@@ -198,11 +198,11 @@ namespace WebApp.ProductoService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductoWS/EliminarProducto", ReplyAction="http://tempuri.org/IProductoWS/EliminarProductoResponse")]
         System.Threading.Tasks.Task<int> EliminarProductoAsync(int codigo);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductoWS/ListaPagProducto", ReplyAction="http://tempuri.org/IProductoWS/ListaPagProductoResponse")]
-        WebApp.ProductoService.ProductoContract[] ListaPagProducto(int pagina);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductoWS/ListaProducto", ReplyAction="http://tempuri.org/IProductoWS/ListaProductoResponse")]
+        WebApp.ProductoService.ProductoContract[] ListaProducto();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductoWS/ListaPagProducto", ReplyAction="http://tempuri.org/IProductoWS/ListaPagProductoResponse")]
-        System.Threading.Tasks.Task<WebApp.ProductoService.ProductoContract[]> ListaPagProductoAsync(int pagina);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductoWS/ListaProducto", ReplyAction="http://tempuri.org/IProductoWS/ListaProductoResponse")]
+        System.Threading.Tasks.Task<WebApp.ProductoService.ProductoContract[]> ListaProductoAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -264,12 +264,12 @@ namespace WebApp.ProductoService {
             return base.Channel.EliminarProductoAsync(codigo);
         }
         
-        public WebApp.ProductoService.ProductoContract[] ListaPagProducto(int pagina) {
-            return base.Channel.ListaPagProducto(pagina);
+        public WebApp.ProductoService.ProductoContract[] ListaProducto() {
+            return base.Channel.ListaProducto();
         }
         
-        public System.Threading.Tasks.Task<WebApp.ProductoService.ProductoContract[]> ListaPagProductoAsync(int pagina) {
-            return base.Channel.ListaPagProductoAsync(pagina);
+        public System.Threading.Tasks.Task<WebApp.ProductoService.ProductoContract[]> ListaProductoAsync() {
+            return base.Channel.ListaProductoAsync();
         }
     }
 }

@@ -7,7 +7,9 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+
+    <a href="@Url.Action("Create")" class="btn btn-success">Registrar Nuevo</a>
+    
 </p>
 <table class="table" id="ClienteTable">
     <thead>
@@ -70,9 +72,8 @@
                 </td>
 
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new {  id=item.Codigo }) |
-                    @Html.ActionLink("Details", "Details", new { id=item.Codigo }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Codigo })
+                    <a href="@Url.Action("Edit", new {  id=item.Codigo })" class="btn btn-warning btn-xs">Editar</a>
+                    
                 </td>
             </tr>
         }

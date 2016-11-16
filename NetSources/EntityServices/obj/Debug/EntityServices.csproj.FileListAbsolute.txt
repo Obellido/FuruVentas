@@ -38,3 +38,17 @@ D:\_UPC_DSD\EntityServices\EntityServices\bin\EntityFramework.SqlServer.xml
 D:\_UPC_DSD\EntityServices\EntityServices\obj\Debug\EntityServices.csprojResolveAssemblyReference.cache
 D:\_UPC_DSD\EntityServices\EntityServices\obj\Debug\EntityServices.dll
 D:\_UPC_DSD\EntityServices\EntityServices\obj\Debug\EntityServices.pdb
+D:\_UPC_DSD\NetSources\EntityServices\bin\EntityServices.dll.config
+D:\_UPC_DSD\NetSources\EntityServices\bin\EntityServices.dll
+D:\_UPC_DSD\NetSources\EntityServices\bin\EntityServices.pdb
+D:\_UPC_DSD\NetSources\EntityServices\bin\AutoMapper.dll
+D:\_UPC_DSD\NetSources\EntityServices\bin\EDM.exe
+D:\_UPC_DSD\NetSources\EntityServices\bin\EntityFramework.dll
+D:\_UPC_DSD\NetSources\EntityServices\bin\EntityFramework.SqlServer.dll
+D:\_UPC_DSD\NetSources\EntityServices\bin\EDM.pdb
+D:\_UPC_DSD\NetSources\EntityServices\bin\AutoMapper.xml
+D:\_UPC_DSD\NetSources\EntityServices\bin\EntityFramework.xml
+D:\_UPC_DSD\NetSources\EntityServices\bin\EntityFramework.SqlServer.xml
+D:\_UPC_DSD\NetSources\EntityServices\obj\Debug\EntityServices.csprojResolveAssemblyReference.cache
+D:\_UPC_DSD\NetSources\EntityServices\obj\Debug\EntityServices.dll
+D:\_UPC_DSD\NetSources\EntityServices\obj\Debug\EntityServices.pdb

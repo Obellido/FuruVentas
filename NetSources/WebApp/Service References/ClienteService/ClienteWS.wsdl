@@ -31,11 +31,11 @@
   <wsdl:message name="IClienteWS_EliminarCliente_OutputMessage">
     <wsdl:part name="parameters" element="tns:EliminarClienteResponse" />
   </wsdl:message>
-  <wsdl:message name="IClienteWS_ListaPagCliente_InputMessage">
-    <wsdl:part name="parameters" element="tns:ListaPagCliente" />
+  <wsdl:message name="IClienteWS_ListaCliente_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListaCliente" />
   </wsdl:message>
-  <wsdl:message name="IClienteWS_ListaPagCliente_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ListaPagClienteResponse" />
+  <wsdl:message name="IClienteWS_ListaCliente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListaClienteResponse" />
   </wsdl:message>
   <wsdl:portType name="IClienteWS">
     <wsdl:operation name="ObtenerCliente">
@@ -54,9 +54,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IClienteWS/EliminarCliente" message="tns:IClienteWS_EliminarCliente_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IClienteWS/EliminarClienteResponse" message="tns:IClienteWS_EliminarCliente_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ListaPagCliente">
-      <wsdl:input wsaw:Action="http://tempuri.org/IClienteWS/ListaPagCliente" message="tns:IClienteWS_ListaPagCliente_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IClienteWS/ListaPagClienteResponse" message="tns:IClienteWS_ListaPagCliente_OutputMessage" />
+    <wsdl:operation name="ListaCliente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClienteWS/ListaCliente" message="tns:IClienteWS_ListaCliente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClienteWS/ListaClienteResponse" message="tns:IClienteWS_ListaCliente_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IClienteWS" type="tns:IClienteWS">
@@ -97,8 +97,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ListaPagCliente">
-      <soap:operation soapAction="http://tempuri.org/IClienteWS/ListaPagCliente" style="document" />
+    <wsdl:operation name="ListaCliente">
+      <soap:operation soapAction="http://tempuri.org/IClienteWS/ListaCliente" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
