@@ -4,9 +4,9 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Listado de Clientes</h2>
 
-<p>
+<p class="pull-right">
 
     <a href="@Url.Action("Create")" class="btn btn-success">Registrar Nuevo</a>
     
@@ -72,7 +72,8 @@
                 </td>
 
                 <td>
-                    <a href="@Url.Action("Edit", new {  id=item.Codigo })" class="btn btn-warning btn-xs">Editar</a>
+                    <a href="@Url.Action("Edit", new {  id=item.Codigo })" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a>
+                    <a href="@Url.Action("Delete", new {  id=item.Codigo })" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a>
                     
                 </td>
             </tr>

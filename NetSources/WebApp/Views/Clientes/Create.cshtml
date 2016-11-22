@@ -4,7 +4,7 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Registrar nuevo Cliente</h2>
 
 
 @using (Html.BeginForm()) 
@@ -12,7 +12,6 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>ClienteContract</h4>
         <hr />
         <div class="form-group">
             @Html.LabelFor(model => model.TipoCliente, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -75,25 +74,39 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <button type="submit" class="btn btn-success" value="Create">
+                    Registrar
+                   <i class="fa fa-save"></i>
+               </button>
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    
+    <a href="@Url.Action("Index")" class="btn btn-default"><i class="fa fa-hand-o-left"></i> Regresar</a>
 </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 <script type="text/javascript">
     $(function () {
+        $("form").validate({
+            rules: {
+                Email: { email: true },
+                Nombres: { required: function (el) { return $('#TipoCliente').val() == 1; } },
+                Apellidos: { required: function (el) { return $('#TipoCliente').val() == 1; } },
+                RazonSocial: { required: function (el) { return $('#TipoCliente').val() == 2; } },
+                DNI: { required: true, digits: true }
+
+            }
+        });
+
         $("#TipoCliente").change(function () {
             v = $(this).val();
             $("#RazonSocial").closest(".form-group").css("display", v == 1 ? "none": "");
             $("#Nombres,#Apellidos").closest(".form-group").css("display", v == 1 ? "" : "none");
-
         }).trigger("change");
     })
 </script>

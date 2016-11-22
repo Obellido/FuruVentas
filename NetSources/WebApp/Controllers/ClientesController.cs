@@ -12,7 +12,7 @@ namespace WebApp.Controllers
     {
         private ClienteWSClient ClCliente = new ClienteWSClient();
 
-        public ActionResult Index(int page = 1)
+        public ActionResult Index()
         {
             var ResultCliente = ClCliente.ListaCliente();
 

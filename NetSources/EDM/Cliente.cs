@@ -22,7 +22,7 @@ namespace EDM
 
         public string RazonSocial { get; set; }
 
-        [MaxLength(8)]
+        
         public string DNI { get; set; }
 
         public string Direccion { get; set; }

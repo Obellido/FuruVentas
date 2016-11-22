@@ -4,7 +4,7 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h2>Modificar información del Cliente</h2>
 
 
 @using (Html.BeginForm())
@@ -12,7 +12,6 @@
     @Html.AntiForgeryToken()
     @Html.HiddenFor(model=> model.Codigo)
     <div class="form-horizontal">
-        <h4>ClienteContract</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -74,20 +73,34 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <button type="submit" class="btn btn-warning" value="Save">
+                    Modificar
+                    <i class="fa fa-save"></i>
+                </button>
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    <a href="@Url.Action("Index")" class="btn btn-default"><i class="fa fa-hand-o-left"></i> Regresar</a>
 </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 <script type="text/javascript">
     $(function () {
+        $("form").validate({
+            rules: {
+                Email: { email: true },
+                Nombres: { required: function (el) { return $('#TipoCliente').val() == 1; } },
+                Apellidos: { required: function (el) { return $('#TipoCliente').val() == 1; } },
+                RazonSocial: { required: function (el) { return $('#TipoCliente').val() == 2; } },
+                DNI: { required: true, digits: true }
+
+            }
+        });
+
         $("#TipoCliente").change(function () {
             v = $(this).val();
             $("#RazonSocial").closest(".form-group").css("display", v == 1 ? "none": "");
