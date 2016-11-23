@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="21c4e683-ec7a-465b-a4ce-bf75dd0632de" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:60904/ClienteWS.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ClienteWS.xsd" MetadataType="Schema" ID="b1d6b30f-23dc-4567-b563-18b023ba568f" SourceId="1" SourceUrl="http://localhost:60904/ClienteWS.svc?xsd=xsd2" />
+    <MetadataFile FileName="ClienteWS.disco" MetadataType="Disco" ID="b90a3367-034d-4b33-af0e-4b41a127109d" SourceId="1" SourceUrl="http://localhost:60904/ClienteWS.svc?disco" />
+    <MetadataFile FileName="ClienteWS1.xsd" MetadataType="Schema" ID="9b0878db-11ec-40ea-98f2-389855dfdb46" SourceId="1" SourceUrl="http://localhost:60904/ClienteWS.svc?xsd=xsd0" />
+    <MetadataFile FileName="ClienteWS2.xsd" MetadataType="Schema" ID="343729af-f9ae-4d87-936a-e4f1873e9a13" SourceId="1" SourceUrl="http://localhost:60904/ClienteWS.svc?xsd=xsd1" />
+    <MetadataFile FileName="ClienteWS.wsdl" MetadataType="Wsdl" ID="886bede8-0d04-458c-b1a3-fabb7d26c1b5" SourceId="1" SourceUrl="http://localhost:60904/ClienteWS.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
