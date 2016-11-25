@@ -57,6 +57,7 @@
     <Compile Include="Cliente.cs" />
     <Compile Include="FuruContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Pedido.cs" />
     <Compile Include="Producto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

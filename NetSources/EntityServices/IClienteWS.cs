@@ -25,7 +25,7 @@ namespace EntityServices
         int EliminarCliente(int codigo);
 
         [OperationContract]
-        ClientePagedContract ListaPagCliente(int pagina);
+        ClientePagedContract ListaCliente();
     }
     
 }

@@ -31,11 +31,11 @@
   <wsdl:message name="IProductoWS_EliminarProducto_OutputMessage">
     <wsdl:part name="parameters" element="tns:EliminarProductoResponse" />
   </wsdl:message>
-  <wsdl:message name="IProductoWS_ListaPagProducto_InputMessage">
-    <wsdl:part name="parameters" element="tns:ListaPagProducto" />
+  <wsdl:message name="IProductoWS_ListaProducto_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListaProducto" />
   </wsdl:message>
-  <wsdl:message name="IProductoWS_ListaPagProducto_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ListaPagProductoResponse" />
+  <wsdl:message name="IProductoWS_ListaProducto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListaProductoResponse" />
   </wsdl:message>
   <wsdl:portType name="IProductoWS">
     <wsdl:operation name="ObtenerProducto">
@@ -54,9 +54,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IProductoWS/EliminarProducto" message="tns:IProductoWS_EliminarProducto_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProductoWS/EliminarProductoResponse" message="tns:IProductoWS_EliminarProducto_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ListaPagProducto">
-      <wsdl:input wsaw:Action="http://tempuri.org/IProductoWS/ListaPagProducto" message="tns:IProductoWS_ListaPagProducto_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IProductoWS/ListaPagProductoResponse" message="tns:IProductoWS_ListaPagProducto_OutputMessage" />
+    <wsdl:operation name="ListaProducto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductoWS/ListaProducto" message="tns:IProductoWS_ListaProducto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductoWS/ListaProductoResponse" message="tns:IProductoWS_ListaProducto_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IProductoWS" type="tns:IProductoWS">
@@ -97,8 +97,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ListaPagProducto">
-      <soap:operation soapAction="http://tempuri.org/IProductoWS/ListaPagProducto" style="document" />
+    <wsdl:operation name="ListaProducto">
+      <soap:operation soapAction="http://tempuri.org/IProductoWS/ListaProducto" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -275,11 +275,11 @@ namespace WebApp.ClienteService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClienteWS/EliminarCliente", ReplyAction="http://tempuri.org/IClienteWS/EliminarClienteResponse")]
         System.Threading.Tasks.Task<int> EliminarClienteAsync(int codigo);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClienteWS/ListaPagCliente", ReplyAction="http://tempuri.org/IClienteWS/ListaPagClienteResponse")]
-        WebApp.ClienteService.ClientePagedContract ListaPagCliente(int pagina);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClienteWS/ListaCliente", ReplyAction="http://tempuri.org/IClienteWS/ListaClienteResponse")]
+        WebApp.ClienteService.ClientePagedContract ListaCliente();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClienteWS/ListaPagCliente", ReplyAction="http://tempuri.org/IClienteWS/ListaPagClienteResponse")]
-        System.Threading.Tasks.Task<WebApp.ClienteService.ClientePagedContract> ListaPagClienteAsync(int pagina);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClienteWS/ListaCliente", ReplyAction="http://tempuri.org/IClienteWS/ListaClienteResponse")]
+        System.Threading.Tasks.Task<WebApp.ClienteService.ClientePagedContract> ListaClienteAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -341,12 +341,12 @@ namespace WebApp.ClienteService {
             return base.Channel.EliminarClienteAsync(codigo);
         }
         
-        public WebApp.ClienteService.ClientePagedContract ListaPagCliente(int pagina) {
-            return base.Channel.ListaPagCliente(pagina);
+        public WebApp.ClienteService.ClientePagedContract ListaCliente() {
+            return base.Channel.ListaCliente();
         }
         
-        public System.Threading.Tasks.Task<WebApp.ClienteService.ClientePagedContract> ListaPagClienteAsync(int pagina) {
-            return base.Channel.ListaPagClienteAsync(pagina);
+        public System.Threading.Tasks.Task<WebApp.ClienteService.ClientePagedContract> ListaClienteAsync() {
+            return base.Channel.ListaClienteAsync();
         }
     }
 }

@@ -24,7 +24,7 @@ namespace EntityServices
         int EliminarProducto(int codigo);
 
         [OperationContract]
-        List<ProductoContract> ListaPagProducto(int pagina);
+        List<ProductoContract> ListaProducto();
 
     }
 }

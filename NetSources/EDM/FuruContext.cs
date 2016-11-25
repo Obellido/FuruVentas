@@ -29,6 +29,8 @@
 
         public virtual DbSet<Cliente> Clientes { get; set; }
         public virtual DbSet<Producto> Productos { get; set; }
+        public virtual DbSet<Pedido> Pedidos { get; set; }
+        public virtual DbSet<DetallePedido> DetallePedido { get; set; }
     }
 
     //public class MyEntity

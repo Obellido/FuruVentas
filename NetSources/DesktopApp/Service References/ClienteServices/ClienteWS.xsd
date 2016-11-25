@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/EntityServices" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/EntityServices" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ClienteContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Apellidos" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Codigo" type="xs:int" />
+      <xs:element minOccurs="0" name="DNI" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Direccion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nombres" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RazonSocial" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Telefono" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TipoCliente" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClienteContract" nillable="true" type="tns:ClienteContract" />
+  <xs:complexType name="ClientePagedContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Records" nillable="true" type="tns:ArrayOfClienteContract" />
+      <xs:element minOccurs="0" name="TotalRecords" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClientePagedContract" nillable="true" type="tns:ClientePagedContract" />
+  <xs:complexType name="ArrayOfClienteContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ClienteContract" nillable="true" type="tns:ClienteContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClienteContract" nillable="true" type="tns:ArrayOfClienteContract" />
+</xs:schema>

@@ -59,9 +59,8 @@ namespace EntityServices
             }
         }
 
-        public ClientePagedContract ListaPagCliente(int pagina)
+        public ClientePagedContract ListaCliente()
         {
-            if (pagina == 0) pagina++;
             List<ClienteContract> ls = new List<ClienteContract>();
             Mapper.Initialize(cfg => cfg.CreateMap<Cliente, ClienteContract>());
 
@@ -69,7 +68,7 @@ namespace EntityServices
 
             var TotalRecords = Query.Count();
 
-            Query.OrderBy(e=> e.Codigo).Take(20).Skip((pagina - 1) * 20).ToList().ForEach(e=> {
+            Query.OrderBy(e=> e.Codigo).ToList().ForEach(e=> {
                 ls.Add(Mapper.Map<ClienteContract>(e));
             });
 

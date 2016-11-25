@@ -56,12 +56,11 @@ namespace EntityServices
             }
         }
 
-        public List<ProductoContract> ListaPagProducto(int pagina)
+        public List<ProductoContract> ListaProducto()
         {
-            if (pagina == 0) pagina++;
             List<ProductoContract> ls = new List<ProductoContract>();
             Mapper.Initialize(cfg => cfg.CreateMap<Producto, ProductoContract>());
-            db.Productos.OrderBy(e => e.Codigo).Take(20).Skip((pagina - 1) * 20).ToList().ForEach(e => {
+            db.Productos.OrderBy(e => e.Codigo).ToList().ForEach(e => {
                 ls.Add(Mapper.Map<ProductoContract>(e));
             });
 
