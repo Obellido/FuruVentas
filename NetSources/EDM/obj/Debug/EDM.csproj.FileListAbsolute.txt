@@ -31,3 +31,12 @@ D:\_UPC_DSD\NetSources\EDM\bin\Debug\EntityFramework.SqlServer.xml
 D:\_UPC_DSD\NetSources\EDM\obj\Debug\EDM.csprojResolveAssemblyReference.cache
 D:\_UPC_DSD\NetSources\EDM\obj\Debug\EDM.exe
 D:\_UPC_DSD\NetSources\EDM\obj\Debug\EDM.pdb
+D:\DSD\FuruVentas\NetSources\EDM\bin\Debug\EDM.exe.config
+D:\DSD\FuruVentas\NetSources\EDM\bin\Debug\EDM.exe
+D:\DSD\FuruVentas\NetSources\EDM\bin\Debug\EDM.pdb
+D:\DSD\FuruVentas\NetSources\EDM\bin\Debug\EntityFramework.dll
+D:\DSD\FuruVentas\NetSources\EDM\bin\Debug\EntityFramework.SqlServer.dll
+D:\DSD\FuruVentas\NetSources\EDM\bin\Debug\EntityFramework.xml
+D:\DSD\FuruVentas\NetSources\EDM\bin\Debug\EntityFramework.SqlServer.xml
+D:\DSD\FuruVentas\NetSources\EDM\obj\Debug\EDM.exe
+D:\DSD\FuruVentas\NetSources\EDM\obj\Debug\EDM.pdb

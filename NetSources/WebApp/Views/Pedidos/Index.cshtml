@@ -1,0 +1,81 @@
+﻿@model IEnumerable<WebApp.PedidoService.Pedido>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Listado de Pedidos</h2>
+
+<p class="pull-right">
+
+    <a href="@Url.Action("Create")" class="btn btn-success">Registrar Nuevo</a>
+
+</p>
+<table class="table" id="PedidosTable">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Codigo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CodigoCliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IGV)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreCliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubTotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Total)
+        </th>
+        <th></th>
+    </tr>
+</thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Codigo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CodigoCliente)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fecha)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IGV)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreCliente)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubTotal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Total)
+                </td>
+                <td>
+                    @Html.ActionLink("Detalle", "Detalle", new {  id=item.Codigo  })
+                </td>
+            </tr>
+        }
+        </tbody>
+
+</table>
+@section scripts{
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $("#PedidosTable").DataTable();
+    });
+
+    </script>
+}

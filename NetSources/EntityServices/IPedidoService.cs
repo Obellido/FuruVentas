@@ -15,6 +15,9 @@ namespace EntityServices
 
         [OperationContract]
         int Registrar(Pedido Data);
+
+        [OperationContract]
+        List<Pedido> Listar();
     }
 
     [DataContract]

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="fb50cf02-1584-4a38-b474-f2897eac4859" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:60904/PedidoService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PedidoService.wsdl" MetadataType="Wsdl" ID="6913a43f-71c9-4716-af3a-f674eb07d7d1" SourceId="1" SourceUrl="http://localhost:60904/PedidoService.svc?wsdl" />
+    <MetadataFile FileName="PedidoService.xsd" MetadataType="Schema" ID="d54e93f7-f1ab-406b-8e75-711018c4c775" SourceId="1" SourceUrl="http://localhost:60904/PedidoService.svc?xsd=xsd0" />
+    <MetadataFile FileName="PedidoService1.xsd" MetadataType="Schema" ID="ab567d12-4ac6-4226-9620-2a40573bee55" SourceId="1" SourceUrl="http://localhost:60904/PedidoService.svc?xsd=xsd2" />
+    <MetadataFile FileName="PedidoService2.xsd" MetadataType="Schema" ID="cd971f00-02ae-4723-a222-0a556390b91a" SourceId="1" SourceUrl="http://localhost:60904/PedidoService.svc?xsd=xsd1" />
+    <MetadataFile FileName="PedidoService.disco" MetadataType="Disco" ID="54651055-c84e-4da7-96ab-429fdc6c60fc" SourceId="1" SourceUrl="http://localhost:60904/PedidoService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
