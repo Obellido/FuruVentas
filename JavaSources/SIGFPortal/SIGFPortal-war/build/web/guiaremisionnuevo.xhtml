@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/main.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="content">
+        <h:form id="frmGuiaRemisionMantenimiento">
+
+            <p:outputLabel value="Guia de Remision - Nuevo" styleClass="titulo"/>
+
+            <p:panel >
+                <h:panelGrid columns="2" width="100%">
+                    <p:commandButton value="Grabar" icon="ui-icon-disk"/>
+                    <p:commandButton value="Cancelar" icon="ui-icon-arrowreturnthick-1-e" style="float:right" />
+                </h:panelGrid>
+            </p:panel>
+
+            <p:panel header="Datos Generales">
+                <h:panelGrid columns="4">
+                    <p:outputLabel value="Nro de Guia"/>
+                    <p:inputText disabled="true" value="#{comprobantePagoFaces.comprobante.nrocomprobante}"/>
+
+                    <p:outputLabel value="Estado"/>
+                    <h:panelGrid columns="3">
+                        <p:selectBooleanCheckbox value="#{comprobantePagoFaces.comprobante.fechahora}"/>
+                        <p:outputLabel value="Fecha Entrega"/>
+                        <p:calendar pattern="dd-MM-yyyy" locale="es" value="#{comprobantePagoFaces.comprobante.fechahora}"/>
+                    </h:panelGrid>
+
+                    <p:outputLabel value="Nro de Comprobante"/>
+                    <h:panelGrid columns="3">
+                        <p:inputText style="width:70px"/>
+                        <p:commandButton icon="ui-icon-search"/>
+                        <p:commandButton icon="ui-icon-trash"/>
+                    </h:panelGrid>
+
+
+                    <p:outputLabel value="Tipo de Comprobante"/>
+                    <p:selectOneMenu disabled="true">
+                        <f:selectItem itemLabel="--Seleccione--"/>
+                        <f:selectItems var="td" value="#{comprobantePagoFaces.tipodocumentos}"
+                                       itemValue="#{td.codelemento}" itemLabel="#{td.descelemento}"/>
+                    </p:selectOneMenu>
+
+
+
+
+
+
+                </h:panelGrid>
+
+            </p:panel>
+
+            <p:panel header="Detalle">
+
+                <p:dataTable id="tblComprobanteDetalle" var="comdet" 
+                             sortBy="#{comprobantePagoFaces.sinregisstros}" 
+                             emptyMessage="#{comprobantePagoFaces.sinregisstros}"
+                             value="#{comprobantePagoFaces.comprobante.comprobantepagoDetalleCollection}">
+                    <p:column headerText="Sec">
+
+                    </p:column>
+                    <p:column headerText="Cod. Producto">
+
+                    </p:column>
+                    <p:column headerText="Descripcion">
+
+                    </p:column>
+                    <p:column headerText="Cantidad">
+
+                    </p:column>
+                    <p:column headerText="Unidad">
+
+                    </p:column>
+                    <p:column headerText="Precio Neto">
+
+                    </p:column>
+
+                    <p:summaryRow>
+                        <p:column colspan="5" style="text-align:right">
+                            <h:outputText value="Totales:" />
+                        </p:column>
+                        <p:column style="text-align:right">
+                            <h:outputText value="1200.00" />
+                        </p:column>
+
+                    </p:summaryRow>
+
+                </p:dataTable>
+            </p:panel>
+
+            <p:panel >
+                <h:panelGrid columns="2" width="100%">
+                    <p:commandButton value="Grabar" icon="ui-icon-disk"/>
+                    <p:commandButton value="Cancelar" icon="ui-icon-arrowreturnthick-1-e" style="float:right" />
+                </h:panelGrid>
+            </p:panel>
+        </h:form>
+    </ui:define>
+
+</ui:composition>
+

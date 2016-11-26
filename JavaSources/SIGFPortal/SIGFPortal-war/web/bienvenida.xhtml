@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/main.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="content">
+        <h:form>
+            <h:panelGrid columns="2" width="100%">
+                <p:chart type="bar" model="#{graficoFaces.barModel}" style="width:700px;height:400px"/>
+                <p:chart type="pie" model="#{graficoFaces.pieModel1}" style="width:400px;height:370px" />
+            </h:panelGrid>
+        </h:form>
+
+    </ui:define>
+
+</ui:composition>
+

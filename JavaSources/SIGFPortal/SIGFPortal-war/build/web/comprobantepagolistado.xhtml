@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/main.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="content">
+        <h:form>
+
+            <p:outputLabel value="Comprobante de Pago - Listado" styleClass="titulo"/>
+
+            <p:panel header="Filtros de Busqueda">
+                <h:panelGrid columns="4" width="100%">
+                    <p:outputLabel value="Nro Comprobante"/>
+                    <p:inputText/>
+                    
+                    <p:outputLabel value="Ruc"/>
+                    <h:panelGrid columns="4">
+                        <p:inputText style="width:120px"/>
+                        <p:inputText style="width:300px"/>
+                        <p:commandButton icon="ui-icon-search"/>
+                        <p:commandButton icon="ui-icon-trash"/>
+                    </h:panelGrid>
+
+                    <p:outputLabel value="Registro Desde"/>
+                    <p:calendar pattern="dd/MM/yyyy" showOn="button" locale="es"/>
+
+                    <p:outputLabel value="Registro Hasta"/>
+                    <p:calendar pattern="dd/MM/yyyy" showOn="button" locale="es"/>
+
+                </h:panelGrid>
+            </p:panel>
+            
+             <p:panel >
+                <h:panelGrid columns="2" width="100%">
+                    <p:commandButton value="Buscar" icon="ui-icon-search" style="float:right" />
+                </h:panelGrid>
+            </p:panel>
+
+
+            <p:dataTable id="idComprobantePago" var="com" value="#{comprobantePagoFaces.comprobantes}"
+                         selectionMode="single" selection="#{comprobantePagoFaces.selectedComprobante}"
+                         sortBy="#{comprobantePagoFaces.sinregisstros}" emptyMessage="#{comprobantePagoFaces.sinregisstros}"
+                         rowKey="#{com.nrocomprobante}" paginator="true" rows="10" paginatorPosition="bottom">
+
+                <p:column headerText="Nro Comprobante" width="44">
+                    <h:outputText value="#{com.nrocomprobante}" />
+                </p:column>
+                <p:column headerText="RUC" width="80">
+                    <h:outputText value="#{com.codcliente}" />
+                </p:column>
+                <p:column headerText="Fecha Registro" style="text-align:center" width="80">
+                    <h:outputText value="#{com.fechahora}">
+                        <f:convertDateTime pattern="dd-MM-yyyy HH:mm" locale="es"/>
+                    </h:outputText>
+                </p:column>
+                <p:column headerText="Estado" width="80" style="text-align:center">
+                    <h:outputText rendered="#{com.estado == 'C'}" value="Camcelado"/>
+                    <h:outputText rendered="#{com.estado == 'A'}" value="Anulado"/>
+                    <h:outputText rendered="#{com.estado == 'P'}" value="Pendiente"/>
+                </p:column>
+                <p:column headerText="Fecha Vencimiento" style="text-align:center" width="80">
+                    <h:outputText value="#{com.fechavencimiento}">
+                        <f:convertDateTime pattern="dd-MM-yyyy" locale="es"/>
+                    </h:outputText>
+                </p:column>
+                <p:column headerText="Importe Pagado" style="text-align:right" width="50">
+                    <h:outputText value="#{com.importepagado}" />
+                </p:column>
+                <p:column headerText="Importe Por Pagar" style="text-align:right" width="50">
+                    <h:outputText value="#{com.importeporpagar}" />
+                </p:column>
+                <p:column headerText="Importe Total" style="text-align:right" width="50">
+                    <h:outputText value="#{com.importetotal}" />
+                </p:column>
+
+                <p:summaryRow>
+                    <p:column colspan="5" style="text-align:right">
+                        <h:outputText value="Totales:" />
+                    </p:column>
+                    <p:column style="text-align:right">
+                        <h:outputText value="1200.00" />
+                    </p:column>
+                    <p:column style="text-align:right">
+                        <h:outputText value="300.0" />
+                    </p:column>
+                    <p:column style="text-align:right">
+                        <h:outputText value="1200.00" />
+                    </p:column>
+                   
+                </p:summaryRow>
+
+            </p:dataTable>
+        </h:form>
+
+    </ui:define>
+
+</ui:composition>
+
