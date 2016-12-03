@@ -1,0 +1,10 @@
+D:\PC1DSD\FurukawaNET\upc.edm\bin\Debug\upc.edm.dll.config
+D:\PC1DSD\FurukawaNET\upc.edm\bin\Debug\upc.edm.dll
+D:\PC1DSD\FurukawaNET\upc.edm\bin\Debug\upc.edm.pdb
+D:\PC1DSD\FurukawaNET\upc.edm\bin\Debug\EntityFramework.dll
+D:\PC1DSD\FurukawaNET\upc.edm\bin\Debug\EntityFramework.SqlServer.dll
+D:\PC1DSD\FurukawaNET\upc.edm\bin\Debug\EntityFramework.xml
+D:\PC1DSD\FurukawaNET\upc.edm\bin\Debug\EntityFramework.SqlServer.xml
+D:\PC1DSD\FurukawaNET\upc.edm\obj\Debug\upc.edm.dll
+D:\PC1DSD\FurukawaNET\upc.edm\obj\Debug\upc.edm.pdb
+D:\PC1DSD\FurukawaNET\upc.edm\obj\Debug\upc.edm.csprojResolveAssemblyReference.cache

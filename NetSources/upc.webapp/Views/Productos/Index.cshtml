@@ -1,0 +1,71 @@
+﻿@model IEnumerable<upc.edm.Productos>
+
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Lista de Productos</h2>
+
+<p class="pull-right">
+    <a href="@Url.Action("Create")" class="btn btn-success">Registrar</a>
+</p>
+
+<table class="table table-striped table-bordered table-hover" id="TableList">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cantidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PVenta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PCompra)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Medida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Proveedor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaCompra)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cantidad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PVenta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PCompra)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Medida)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Proveedor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaCompra)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.Codigo }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.Codigo })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

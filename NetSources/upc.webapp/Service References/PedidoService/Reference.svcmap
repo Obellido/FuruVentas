@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f82dea3c-68b9-4610-be66-ac6330ebeef0" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:58201/WsPedido.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="WsPedido.wsdl" MetadataType="Wsdl" ID="9b635d41-f711-4297-ad09-6bfe6f42252b" SourceId="1" SourceUrl="http://localhost:58201/WsPedido.svc?wsdl" />
+    <MetadataFile FileName="WsPedido.xsd" MetadataType="Schema" ID="240e78ef-ac07-46ee-8ca2-46d4d79842a3" SourceId="1" SourceUrl="http://localhost:58201/WsPedido.svc?xsd=xsd1" />
+    <MetadataFile FileName="WsPedido.disco" MetadataType="Disco" ID="ef7a89c7-a267-4934-9922-5f98ae672a4d" SourceId="1" SourceUrl="http://localhost:58201/WsPedido.svc?disco" />
+    <MetadataFile FileName="WsPedido1.xsd" MetadataType="Schema" ID="2334bde4-85a3-4da2-9668-ba528049a5fd" SourceId="1" SourceUrl="http://localhost:58201/WsPedido.svc?xsd=xsd0" />
+    <MetadataFile FileName="WsPedido2.xsd" MetadataType="Schema" ID="786bf9be-d0b9-4a4b-97f3-9d1132a83e03" SourceId="1" SourceUrl="http://localhost:58201/WsPedido.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

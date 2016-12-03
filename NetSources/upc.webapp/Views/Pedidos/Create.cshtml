@@ -1,0 +1,155 @@
+﻿@model upc.ws.Pedido
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Registrar</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal" id="vform">
+        <h4>Pedido</h4>
+        <hr />
+
+
+        <div class="well">
+            <div class="form-group">
+                <label class="control-label col-md-2">Persona Natural o Juridica</label>
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.CodigoCliente, null, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="well">
+            <fieldset>
+                <legend>Agregar Producto</legend>
+                <div class="form-group">
+                    <label class="control-label col-md-2">Producto</label>
+                    <div class="col-md-3">
+                        <select class="form-control" name="Producto" v-model="productosel">
+                            <option value="">---</option>
+                            <option v-for="option in productos" v-bind:value="option">
+                                {{ option.Descripcion }}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <button class="btn btn-info" type="button" v-on:click="agregarproducto"><i class="glyphicon glyphicon-plus"></i> Agregar</button>
+                    </div>
+                </div>
+
+            </fieldset>
+        </div>
+        <div class="well">
+            <fieldset>
+                <legend>Detalle del Pedido</legend>
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Producto</th>
+                                    <th>Precio Unitario</th>
+                                    <th>Cantidad</th>
+                                    <th>SubTotal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="op in detalle">
+                                    <td>{{op.Descripcion}}<input type="hidden" name="Detalle[{{$index}}][CodigoProducto]" value="{{op.Codigo}}" /></td>
+                                    <td>{{op.PVenta | currency 'S/.'}}<input type="hidden" name="Detalle[{{$index}}][PrecioU]" value="{{op.PVenta}}" /></td>
+                                    <td><input type="number" name="Detalle[{{$index}}][Cantidad]" v-model="op.cant" /></td>
+                                    <td>{{op.cant * op.PVenta | currency 'S/.'}}<input type="hidden" name="Detalle[{{$index}}][SubTotal]" value="{{op.cant * op.PVenta}}" /></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <div class="well">
+        <fieldset>
+            <div class="row">
+                <div class="col-md-8"></div>
+                <div class="col-md-4" style="font-size: 20px; font-weight:bold">
+                    IGV : {{verIgv()  | currency 'S/.'}} <br />
+                    SubTotal : {{verSubTotal() | currency 'S/.'}}<br />
+                    Total: {{verIgv() + verSubTotal() | currency 'S/.'}} <br />
+
+                    <input type="hidden" name="IGV" value="{{verIgv()}}" />
+                    <input type="hidden" name="SubTotal" value="{{verSubTotal()}}" />
+                    <input type="hidden" name="Total" value="{{verIgv() + verSubTotal() }}" />
+                </div>
+            </div>
+        </fieldset>
+            </div>
+        <hr />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" class="btn btn-success" value="Create">
+                    Registrar
+                    <i class="fa fa-save"></i>
+                </button>
+            </div>
+        </div>
+
+    </div>
+}
+
+<div>
+
+    <a href="@Url.Action("Index")" class="btn btn-default"><i class="fa fa-hand-o-left"></i> Regresar</a>
+</div>
+@section scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.28/vue.min.js"></script>
+    <script type="text/javascript">
+
+        vm = new Vue({
+            el: '#vform',
+            data: {
+                detalle: [],
+                productos: [],
+                productosel: null
+
+            },
+            methods: {
+                agregarproducto: function () {
+                    self = this;
+                    var val = self.productosel;
+                    console.log(val);
+                    this.detalle.push({Descripcion: val.Descripcion, PVenta: val.PVenta, cant : 1, Codigo: val.Codigo});
+                },
+                verIgv: function () {
+                    var suma = 0;
+
+                    for (var i = 0, len = this.detalle.length; i < len; i++) {
+                        suma += (this.detalle[i].cant * this.detalle[i].PVenta) * 0.18;
+                    }
+
+                    return suma;
+                },
+                verSubTotal: function () {
+                    var suma = 0;
+
+                    for (var i = 0, len = this.detalle.length; i < len; i++) {
+                        suma += (this.detalle[i].cant * this.detalle[i].PVenta);
+                    }
+
+                    return suma;
+                }
+            },
+            created: function () {
+                self = this;
+                $.ajax("ProductoList", {method : 'POST'}).success(function (resp) {
+                    self.productos = resp;
+                });
+            }
+        });
+
+    </script>
+}

@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="upc.ws.WsPedido" CodeBehind="WsPedido.svc.cs" %>

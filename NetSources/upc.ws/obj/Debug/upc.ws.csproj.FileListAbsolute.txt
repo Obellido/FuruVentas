@@ -1,0 +1,14 @@
+D:\PC1DSD\FurukawaNET\upc.ws\obj\Debug\upc.ws.csprojResolveAssemblyReference.cache
+D:\PC1DSD\FurukawaNET\upc.ws\bin\upc.ws.dll.config
+D:\PC1DSD\FurukawaNET\upc.ws\bin\upc.ws.dll
+D:\PC1DSD\FurukawaNET\upc.ws\bin\upc.ws.pdb
+D:\PC1DSD\FurukawaNET\upc.ws\bin\AutoMapper.dll
+D:\PC1DSD\FurukawaNET\upc.ws\bin\EntityFramework.dll
+D:\PC1DSD\FurukawaNET\upc.ws\bin\EntityFramework.SqlServer.dll
+D:\PC1DSD\FurukawaNET\upc.ws\bin\upc.edm.dll
+D:\PC1DSD\FurukawaNET\upc.ws\bin\upc.edm.pdb
+D:\PC1DSD\FurukawaNET\upc.ws\bin\AutoMapper.xml
+D:\PC1DSD\FurukawaNET\upc.ws\bin\EntityFramework.xml
+D:\PC1DSD\FurukawaNET\upc.ws\bin\EntityFramework.SqlServer.xml
+D:\PC1DSD\FurukawaNET\upc.ws\obj\Debug\upc.ws.dll
+D:\PC1DSD\FurukawaNET\upc.ws\obj\Debug\upc.ws.pdb

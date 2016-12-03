@@ -1,0 +1,74 @@
+﻿@model upc.edm.Productos
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Productos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cantidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cantidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PVenta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PVenta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PCompra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PCompra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Medida)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Medida)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Proveedor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proveedor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaCompra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaCompra)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Codigo }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
