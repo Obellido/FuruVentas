@@ -39,45 +39,37 @@
             </p:panel>
 
 
-            <p:dataTable id="idComprobantePago" var="com" value="#{comprobantePagoFaces.comprobantes}"
-                         selectionMode="single" selection="#{comprobantePagoFaces.selectedComprobante}"
-                         sortBy="#{comprobantePagoFaces.sinregisstros}" emptyMessage="#{comprobantePagoFaces.sinregisstros}"
-                         rowKey="#{com.nrocomprobante}" paginator="true" rows="10" paginatorPosition="bottom">
+            <p:dataTable id="idGuiaRemision" var="guia" value="#{guiaRemisionFaces.guias}"
+                         sortBy="#{guiaRemisionFaces.sinregisstros}" emptyMessage="#{guiaRemisionFaces.sinregisstros}"
+                         rowKey="#{guia.nroguia}" paginator="true" rows="10" paginatorPosition="bottom">
 
                 <p:column headerText="Nro Guia" width="44">
-                    <h:outputText value="#{com.nrocomprobante}" />
+                    <h:outputText value="#{guia.nroguia}" />
                 </p:column>
-                <p:column headerText="Cliente" width="80">
-                    <h:outputText value="#{com.codcliente}" />
-                </p:column>
+               
                 <p:column headerText="Nro Comprobante" width="44">
-                    <h:outputText value="#{com.nrocomprobante}" />
+                    <h:outputText value="#{guia.nrocomprobante.nrocomprobante}" />
                 </p:column>
-                <p:column headerText="Fecha Hora" style="text-align:center" width="80">
-                    <h:outputText value="#{com.fechahora}">
-                        <f:convertDateTime pattern="dd-MM-yyyy HH:mm" locale="es"/>
-                    </h:outputText>
-                </p:column>
+                
                 <p:column headerText="Fecha Entrega" style="text-align:center" width="80">
-                    <h:outputText value="#{com.fechavencimiento}">
+                    <h:outputText value="#{guia.fechahora}">
                         <f:convertDateTime pattern="dd-MM-yyyy" locale="es"/>
                     </h:outputText>
                 </p:column>
                 <p:column headerText="Estado" width="80" style="text-align:center">
-                    <h:outputText rendered="#{com.estado == 'C'}" value="Camcelado"/>
-                    <h:outputText rendered="#{com.estado == 'A'}" value="Anulado"/>
-                    <h:outputText rendered="#{com.estado == 'P'}" value="Pendiente"/>
+                    <h:outputText rendered="#{guia.flgEntregado == 'N'}" value="No entregado"/>
+                    <h:outputText rendered="#{guia.flgEntregado == 'S'}" value="Entregado"/>
                 </p:column>
-                <p:column headerText="Importe Total" style="text-align:right" width="50">
-                    <h:outputText value="#{com.importetotal}" />
+                <p:column headerText="Cantidad Total" style="text-align:right" width="50">
+                    <h:outputText value="#{guia.cantidadtotal}" />
                 </p:column>
 
                 <p:summaryRow>
-                    <p:column colspan="6" style="text-align:right">
-                        <h:outputText value="Totales:" />
+                    <p:column colspan="4" style="text-align:right">
+                        <h:outputText value="Total:" />
                     </p:column>
                     <p:column style="text-align:right">
-                        <h:outputText value="1200.00" />
+                        <h:outputText value="" />
                     </p:column>
 
                 </p:summaryRow>

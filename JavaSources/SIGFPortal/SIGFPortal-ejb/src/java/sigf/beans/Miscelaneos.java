@@ -29,25 +29,20 @@ import javax.xml.bind.annotation.XmlTransient;
 @Table(name = "tb_miscelaneos")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Miscelaneos.findAll", query = "SELECT t FROM Miscelaneos t")
-    , @NamedQuery(name = "Miscelaneos.findBySecuencia", query = "SELECT t FROM Miscelaneos t WHERE t.secuencia = :secuencia")
-    , @NamedQuery(name = "Miscelaneos.findByCodproceso", query = "SELECT t FROM Miscelaneos t WHERE t.codproceso = :codproceso")
-    , @NamedQuery(name = "Miscelaneos.findByCodelemento", query = "SELECT t FROM Miscelaneos t WHERE t.codelemento = :codelemento")
-    , @NamedQuery(name = "Miscelaneos.findByDescelemento", query = "SELECT t FROM Miscelaneos t WHERE t.descelemento = :descelemento")
-    , @NamedQuery(name = "Miscelaneos.findByEstado", query = "SELECT t FROM Miscelaneos t WHERE t.estado = :estado")})
+    @NamedQuery(name = "Miscelaneos.findAll", query = "SELECT m FROM Miscelaneos m")
+    , @NamedQuery(name = "Miscelaneos.findByCodproceso", query = "SELECT m FROM Miscelaneos m WHERE m.codproceso = :codproceso")
+    , @NamedQuery(name = "Miscelaneos.findByCodelemento", query = "SELECT m FROM Miscelaneos m WHERE m.codelemento = :codelemento")
+    , @NamedQuery(name = "Miscelaneos.findByDescelemento", query = "SELECT m FROM Miscelaneos m WHERE m.descelemento = :descelemento")
+    , @NamedQuery(name = "Miscelaneos.findByEstado", query = "SELECT m FROM Miscelaneos m WHERE m.estado = :estado")})
 public class Miscelaneos implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "secuencia")
-    private Integer secuencia;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 8)
     @Column(name = "codproceso")
     private String codproceso;
+    @Id
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 2)
@@ -62,32 +57,28 @@ public class Miscelaneos implements Serializable {
     @Column(name = "estado")
     private String estado;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codmoneda")
-    private Collection<Comprobantepago> tbComprobantepagoCollection;
+    private Collection<Comprobantepago> comprobantepagoCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codtipodocumento")
-    private Collection<Comprobantepago> tbComprobantepagoCollection1;
+    private Collection<Comprobantepago> comprobantepagoCollection1;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codtipopago")
-    private Collection<Comprobantepago> tbComprobantepagoCollection2;
+    private Collection<Comprobantepago> comprobantepagoCollection2;
 
     public Miscelaneos() {
     }
 
-    public Miscelaneos(Integer secuencia) {
-        this.secuencia = secuencia;
+    public Miscelaneos(String codelemento) {
+        this.codelemento = codelemento;
     }
 
-    public Miscelaneos(Integer secuencia, String codproceso, String codelemento, String descelemento) {
-        this.secuencia = secuencia;
+    public Miscelaneos(String codproceso, String codelemento) {
         this.codproceso = codproceso;
         this.codelemento = codelemento;
+    }
+    
+    public Miscelaneos(String codelemento, String codproceso, String descelemento) {
+        this.codelemento = codelemento;
+        this.codproceso = codproceso;
         this.descelemento = descelemento;
-    }
-
-    public Integer getSecuencia() {
-        return secuencia;
-    }
-
-    public void setSecuencia(Integer secuencia) {
-        this.secuencia = secuencia;
     }
 
     public String getCodproceso() {
@@ -123,36 +114,36 @@ public class Miscelaneos implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Comprobantepago> getTbComprobantepagoCollection() {
-        return tbComprobantepagoCollection;
+    public Collection<Comprobantepago> getComprobantepagoCollection() {
+        return comprobantepagoCollection;
     }
 
-    public void setTbComprobantepagoCollection(Collection<Comprobantepago> tbComprobantepagoCollection) {
-        this.tbComprobantepagoCollection = tbComprobantepagoCollection;
-    }
-
-    @XmlTransient
-    public Collection<Comprobantepago> getTbComprobantepagoCollection1() {
-        return tbComprobantepagoCollection1;
-    }
-
-    public void setTbComprobantepagoCollection1(Collection<Comprobantepago> tbComprobantepagoCollection1) {
-        this.tbComprobantepagoCollection1 = tbComprobantepagoCollection1;
+    public void setComprobantepagoCollection(Collection<Comprobantepago> comprobantepagoCollection) {
+        this.comprobantepagoCollection = comprobantepagoCollection;
     }
 
     @XmlTransient
-    public Collection<Comprobantepago> getTbComprobantepagoCollection2() {
-        return tbComprobantepagoCollection2;
+    public Collection<Comprobantepago> getComprobantepagoCollection1() {
+        return comprobantepagoCollection1;
     }
 
-    public void setTbComprobantepagoCollection2(Collection<Comprobantepago> tbComprobantepagoCollection2) {
-        this.tbComprobantepagoCollection2 = tbComprobantepagoCollection2;
+    public void setComprobantepagoCollection1(Collection<Comprobantepago> comprobantepagoCollection1) {
+        this.comprobantepagoCollection1 = comprobantepagoCollection1;
+    }
+
+    @XmlTransient
+    public Collection<Comprobantepago> getComprobantepagoCollection2() {
+        return comprobantepagoCollection2;
+    }
+
+    public void setComprobantepagoCollection2(Collection<Comprobantepago> comprobantepagoCollection2) {
+        this.comprobantepagoCollection2 = comprobantepagoCollection2;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (secuencia != null ? secuencia.hashCode() : 0);
+        hash += (codelemento != null ? codelemento.hashCode() : 0);
         return hash;
     }
 
@@ -163,7 +154,7 @@ public class Miscelaneos implements Serializable {
             return false;
         }
         Miscelaneos other = (Miscelaneos) object;
-        if ((this.secuencia == null && other.secuencia != null) || (this.secuencia != null && !this.secuencia.equals(other.secuencia))) {
+        if ((this.codelemento == null && other.codelemento != null) || (this.codelemento != null && !this.codelemento.equals(other.codelemento))) {
             return false;
         }
         return true;
@@ -171,7 +162,7 @@ public class Miscelaneos implements Serializable {
 
     @Override
     public String toString() {
-        return "sigf.beans.Miscelaneos[ secuencia=" + secuencia + " ]";
+        return "sigf.beans.Miscelaneos[ codelemento=" + codelemento + " ]";
     }
     
 }

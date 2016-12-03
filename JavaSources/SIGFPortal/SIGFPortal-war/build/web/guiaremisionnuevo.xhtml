@@ -9,11 +9,14 @@
     <ui:define name="content">
         <h:form id="frmGuiaRemisionMantenimiento">
 
+            <p:growl life="4000" />
+
             <p:outputLabel value="Guia de Remision - Nuevo" styleClass="titulo"/>
 
             <p:panel >
                 <h:panelGrid columns="2" width="100%">
-                    <p:commandButton value="Grabar" icon="ui-icon-disk"/>
+                    <p:commandButton value="Grabar" icon="ui-icon-disk"
+                                     action="#{guiaRemisionFaces.guardar()}"   />
                     <p:commandButton value="Cancelar" icon="ui-icon-arrowreturnthick-1-e" style="float:right" />
                 </h:panelGrid>
             </p:panel>
@@ -21,33 +24,28 @@
             <p:panel header="Datos Generales">
                 <h:panelGrid columns="4">
                     <p:outputLabel value="Nro de Guia"/>
-                    <p:inputText disabled="true" value="#{comprobantePagoFaces.comprobante.nrocomprobante}"/>
+                    <p:inputText disabled="true" value="#{guiaRemisionFaces.guia.nroguia}"/>
 
                     <p:outputLabel value="Estado"/>
                     <h:panelGrid columns="3">
-                        <p:selectBooleanCheckbox value="#{comprobantePagoFaces.comprobante.fechahora}"/>
+                        <p:selectBooleanCheckbox value="false"/>
                         <p:outputLabel value="Fecha Entrega"/>
-                        <p:calendar pattern="dd-MM-yyyy" locale="es" value="#{comprobantePagoFaces.comprobante.fechahora}"/>
+                        <p:calendar pattern="dd-MM-yyyy" locale="es" value="#{guiaRemisionFaces.guia.fechahora}"/>
                     </h:panelGrid>
 
                     <p:outputLabel value="Nro de Comprobante"/>
                     <h:panelGrid columns="3">
-                        <p:inputText style="width:70px"/>
-                        <p:commandButton icon="ui-icon-search"/>
+                        <p:inputText id="txtComprobante" required="true" requiredMessage="Debe ingresar el nro de Comprobante." style="width:70px" value="#{guiaRemisionFaces.guia.nrocomprobante.nrocomprobante}"/>
+                        <p:commandButton update="@form" process="@this,txtComprobante" icon="ui-icon-search" action="#{guiaRemisionFaces.obtenerComprobante()}"/>
                         <p:commandButton icon="ui-icon-trash"/>
                     </h:panelGrid>
 
-
                     <p:outputLabel value="Tipo de Comprobante"/>
-                    <p:selectOneMenu disabled="true">
+                    <p:selectOneMenu disabled="true" value="#{guiaRemisionFaces.comprobante.codtipodocumento.codelemento}">
                         <f:selectItem itemLabel="--Seleccione--"/>
                         <f:selectItems var="td" value="#{comprobantePagoFaces.tipodocumentos}"
                                        itemValue="#{td.codelemento}" itemLabel="#{td.descelemento}"/>
                     </p:selectOneMenu>
-
-
-
-
 
 
                 </h:panelGrid>
@@ -57,9 +55,9 @@
             <p:panel header="Detalle">
 
                 <p:dataTable id="tblComprobanteDetalle" var="comdet" 
-                             sortBy="#{comprobantePagoFaces.sinregisstros}" 
-                             emptyMessage="#{comprobantePagoFaces.sinregisstros}"
-                             value="#{comprobantePagoFaces.comprobante.comprobantepagoDetalleCollection}">
+                             sortBy="#{guiaRemisionFaces.sinregisstros}" 
+                             emptyMessage="#{guiaRemisionFaces.sinregisstros}"
+                             value="#{guiaRemisionFaces.comprobante.detalle}">
                     <p:column headerText="Sec">
 
                     </p:column>
@@ -94,7 +92,7 @@
 
             <p:panel >
                 <h:panelGrid columns="2" width="100%">
-                    <p:commandButton value="Grabar" icon="ui-icon-disk"/>
+                    <p:commandButton value="Grabar" icon="ui-icon-disk" action="#{guiaRemisionFaces.guardar()}"  />
                     <p:commandButton value="Cancelar" icon="ui-icon-arrowreturnthick-1-e" style="float:right" />
                 </h:panelGrid>
             </p:panel>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/WSComprobanteElectronico/WSComprobanteElectronico?WSDL" uri="wsdl/localhost_8080/WSComprobanteElectronico/WSComprobanteElectronico.wsdl"/>
+    <system systemId="http://localhost:8080/WSComprobanteElectronico/WSComprobanteElectronico?xsd=1" uri="wsdl/localhost_8080/WSComprobanteElectronico/WSComprobanteElectronico.xsd_1.xsd"/>
+    <system systemId="http://10.142.120.37:58201/WsPedido.svc?wsdl" uri="wsdl/10.142.120.37_58201/WsPedido.svc.wsdl"/>
+    <system systemId="http://10.142.120.37:58201/WsPedido.svc?xsd=xsd0" uri="wsdl/10.142.120.37_58201/WsPedido.svc.xsd_xsd0.xsd"/>
+    <system systemId="http://10.142.120.37:58201/WsPedido.svc?xsd=xsd1" uri="wsdl/10.142.120.37_58201/WsPedido.svc.xsd_xsd1.xsd"/>
+    <system systemId="http://10.142.120.37:58201/WsPedido.svc?xsd=xsd2" uri="wsdl/10.142.120.37_58201/WsPedido.svc.xsd_xsd2.xsd"/>
+</catalog>

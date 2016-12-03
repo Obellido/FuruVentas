@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.3 (tags/2.3-7528; 2013-04-29T19:34:10+0000) JAXWS-RI/2.2.8 JAXWS/2.2 svn-revision#unknown. --><xs:schema xmlns:tns="http://ws.org.gob.sunat/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ws.org.gob.sunat/">
+
+<xs:element name="comprobanteElectronico" type="tns:comprobanteElectronico"/>
+
+<xs:element name="convetirXMLaComprobante" type="tns:convetirXMLaComprobante"/>
+
+<xs:element name="convetirXMLaComprobanteResponse" type="tns:convetirXMLaComprobanteResponse"/>
+
+<xs:element name="empresa" type="tns:empresa"/>
+
+<xs:element name="generarComprobante" type="tns:generarComprobante"/>
+
+<xs:element name="generarComprobanteResponse" type="tns:generarComprobanteResponse"/>
+
+<xs:element name="generarComprobante_1" type="tns:generarComprobante_1"/>
+
+<xs:element name="generarComprobante_1Response" type="tns:generarComprobante_1Response"/>
+
+<xs:complexType name="convetirXMLaComprobante">
+<xs:sequence>
+<xs:element name="contenidoXML" type="xs:base64Binary" nillable="true" minOccurs="0"/>
+<xs:element name="nombreXML" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="convetirXMLaComprobanteResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:comprobanteElectronico" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="comprobanteElectronico">
+<xs:sequence>
+<xs:element name="anticipos" type="xs:decimal" minOccurs="0"/>
+<xs:element name="descuentos" type="xs:decimal" minOccurs="0"/>
+<xs:element name="fechaemision" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="fechavencimiento" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="nrocomprobante" type="xs:string" minOccurs="0"/>
+<xs:element name="observacion" type="xs:string" minOccurs="0"/>
+<xs:element name="ruccliente" type="tns:empresa" minOccurs="0"/>
+<xs:element name="rucempresa" type="tns:empresa" minOccurs="0"/>
+<xs:element name="subtotalventa" type="xs:decimal" minOccurs="0"/>
+<xs:element name="tipo" type="xs:string" minOccurs="0"/>
+<xs:element name="tipomoneda" type="xs:string" minOccurs="0"/>
+<xs:element name="valorventa" type="xs:decimal" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="empresa">
+<xs:sequence>
+<xs:element name="clave" type="xs:string" minOccurs="0"/>
+<xs:element name="departamento" type="xs:string" minOccurs="0"/>
+<xs:element name="direccion" type="xs:string" minOccurs="0"/>
+<xs:element name="distrito" type="xs:string" minOccurs="0"/>
+<xs:element name="provincia" type="xs:string" minOccurs="0"/>
+<xs:element name="razonsocial" type="xs:string" minOccurs="0"/>
+<xs:element name="ruc" type="xs:string" minOccurs="0"/>
+<xs:element name="tipo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="generarComprobante_1">
+<xs:sequence>
+<xs:element ref="tns:comprobanteElectronico" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="generarComprobante_1Response">
+<xs:sequence>
+<xs:element name="return" type="tns:comprobanteElectronico" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="generarComprobante">
+<xs:sequence>
+<xs:element name="ruc" type="xs:string" minOccurs="0"/>
+<xs:element name="clave" type="xs:string" minOccurs="0"/>
+<xs:element name="contenidoXML" type="xs:base64Binary" nillable="true" minOccurs="0"/>
+<xs:element name="nombreXML" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="generarComprobanteResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

@@ -8,6 +8,7 @@ package sigf.services;
 import java.util.List;
 import javax.ejb.Local;
 import sigf.beans.Comprobantepago;
+import sigf.beans.Miscelaneos;
 
 /**
  *
@@ -18,6 +19,14 @@ public interface ComprobantePagoServicesLocal {
  
     public List<Comprobantepago> listarComprobantes();
     
-    public String registraComprobantes();
+    public String registrarComprobante(Comprobantepago comprobante);
+
+    public Comprobantepago obtenerPorNroPedido(String nropedido, Comprobantepago comprobante);
+
+    public Comprobantepago obtenerPorId(String nroComprobante);
+
+    public String obtenerCorrelativo(Miscelaneos tipoDocumento);
+    
+    public String validarregistrarComprobante(Comprobantepago comprobante);
     
 }

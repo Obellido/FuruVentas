@@ -8,43 +8,47 @@
 
     <ui:define name="content">
         <h:form id="frmComprobanteMantenimiento">
+            
+            <p:growl life="4000"/>
 
             <p:outputLabel value="Comprobante de Pago - Nuevo" styleClass="titulo"/>
 
             <p:panel >
                 <h:panelGrid columns="2" width="100%">
-                    <p:commandButton value="Grabar" icon="ui-icon-disk"/>
+                    <p:commandButton value="Grabar" icon="ui-icon-disk" 
+                                     action="#{comprobantePagoFaces.grabarComprobante()}"/>
                     <p:commandButton value="Cancelar" icon="ui-icon-arrowreturnthick-1-e" style="float:right" />
                 </h:panelGrid>
             </p:panel>
 
             <p:panel header="Datos Generales">
-                <h:panelGrid columns="4">
+                <h:panelGrid columns="4" style="width:70%">
                     <p:outputLabel value="Nro Comprobante"/>
                     <p:inputText disabled="true" value="#{comprobantePagoFaces.comprobante.nrocomprobante}"/>
 
                     <p:outputLabel value="Tipo de Comprobante"/>
-                    <p:selectOneMenu>
+                    <p:selectOneMenu value="#{comprobantePagoFaces.comprobante.codtipodocumento.codelemento}">
                         <f:selectItem itemLabel="--Seleccione--"/>
                         <f:selectItems var="td" value="#{comprobantePagoFaces.tipodocumentos}"
                                        itemValue="#{td.codelemento}" itemLabel="#{td.descelemento}"/>
                     </p:selectOneMenu>
 
                     <p:outputLabel value="Nro de Pedido"/>
-                    <h:panelGrid columns="4">
-                        <p:inputText value="#{comprobantePagoFaces.comprobante.codcliente}" style="width:120px"/>
-                        <p:inputText value="#{comprobantePagoFaces.comprobante.codcliente}" style="width:300px"/>
-                        <p:commandButton icon="ui-icon-search" title="Obtener Pedido"/>
+                    <h:panelGrid columns="3">
+                        <p:inputText value="#{comprobantePagoFaces.nropedido}" style="width:120px" id="txtNroPedido"
+                                     required="true" requiredMessage="Debe Ingresar el Codigo de Pedido."/>
+                        <p:commandButton icon="ui-icon-search" title="Obtener Pedido" 
+                                         update="@form" process="@this,txtNroPedido"
+                                         action="#{comprobantePagoFaces.obtenerPedido()}"/>
                         <p:commandButton icon="ui-icon-trash"/>
                     </h:panelGrid>
 
                     <p:outputLabel value="Cliente"/>
-                    <p:inputText value="#{comprobantePagoFaces.comprobante.codcliente}" style="width:300px"/>
-
+                    <p:inputText value="#{comprobantePagoFaces.comprobante.codcliente.razonsocial}" style="width:300px"/>
 
                     <p:outputLabel value="Tipo de Pago"/>
                     <h:panelGrid columns="3" >
-                        <p:selectOneMenu>
+                        <p:selectOneMenu value="#{comprobantePagoFaces.comprobante.codtipopago.codelemento}">
                             <f:selectItem itemLabel="--Seleccione--"/>
                             <f:selectItems var="tp" value="#{comprobantePagoFaces.tipopagos}"
                                            itemValue="#{tp.codelemento}" itemLabel="#{tp.descelemento}"/>
@@ -78,17 +82,17 @@
                     <h:panelGrid columns="6" >
                         <p:outputLabel value="Importe Pagado"/>
                         <p:inputText value="#{comprobantePagoFaces.comprobante.importepagado}"
-                                     style="width: 60px; text-align: right" readonly="true"/>
+                                     style="width: 60px; text-align: right" disabled="true"/>
 
 
                         <p:outputLabel value="Importe Por Pagar"/>
                         <p:inputText value="#{comprobantePagoFaces.comprobante.importeporpagar}"
-                                     style="width: 60px; text-align: right" readonly="true"/>
+                                     style="width: 60px; text-align: right" />
 
 
                         <p:outputLabel value="Importe Total"/>
                         <p:inputText value="#{comprobantePagoFaces.comprobante.importetotal}"
-                                     style="width: 60px; text-align: right" readonly="true"/>
+                                     style="width: 60px; text-align: right" disabled="true"/>
 
                     </h:panelGrid>
                 </p:fieldset>
@@ -96,38 +100,39 @@
 
             <p:panel header="Detalle">
 
-                <p:dataTable id="tblComprobanteDetalle" var="comdet" 
-                             emptyMessage="No se encontraron registros" value="#{comprobantePagoFaces.comprobante.comprobantepagoDetalleCollection}">
-                    <p:column headerText="Sec">
 
+                <p:dataTable id="tblComprobanteDetalle" value="#{comprobantePagoFaces.comprobante.detalle}"
+                             emptyMessage="No se encontraron registros" var="det">
+                    <p:column headerText="Sec">
+                        <p:outputLabel value="#{det.secuencia}"/>
                     </p:column>
                     <p:column headerText="Cod. Producto">
-
+                        <p:outputLabel value="#{det.codigo}"/>
                     </p:column>
                     <p:column headerText="Descripcion">
-
+                        <p:outputLabel value="#{det.descripcion}"/>
                     </p:column>
-                     <p:column headerText="Cantidad">
-
+                    <p:column headerText="Cantidad">
+                        <p:outputLabel value="#{det.cantidadunidad}"/>
                     </p:column>
                     <p:column headerText="Unidad">
-
+                        <p:outputLabel value="#{det.unidadmedida}"/>
                     </p:column>
                     <p:column headerText="Precio Unitario">
-
+                        <p:outputLabel value="#{det.valorunitario}"/>
                     </p:column>
                     <p:column headerText="Descuento">
+                        <p:outputLabel value="#{det.descuento}"/>
                     </p:column>
                     <p:column headerText="Precio Neto">
-
+                        <p:outputLabel value="#{det.valorventa}"/>
                     </p:column>
-
                 </p:dataTable>
             </p:panel>
-            
+
             <p:panel >
                 <h:panelGrid columns="2" width="100%">
-                    <p:commandButton value="Grabar" icon="ui-icon-disk"/>
+                    <p:commandButton value="Grabar" icon="ui-icon-disk" action="#{comprobantePagoFaces.grabarComprobante()}"/>
                     <p:commandButton value="Cancelar" icon="ui-icon-arrowreturnthick-1-e" style="float:right" />
                 </h:panelGrid>
             </p:panel>

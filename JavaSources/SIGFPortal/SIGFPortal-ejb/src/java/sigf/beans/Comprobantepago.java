@@ -7,8 +7,8 @@ package sigf.beans;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -18,14 +18,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
+import sigf.dtos.DtoComprobanteDetalle;
 
 /**
  *
@@ -35,15 +36,14 @@ import javax.xml.bind.annotation.XmlTransient;
 @Table(name = "tb_comprobantepago")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Comprobantepago.findAll", query = "SELECT t FROM Comprobantepago t")
-    , @NamedQuery(name = "Comprobantepago.findByNrocomprobante", query = "SELECT t FROM Comprobantepago t WHERE t.nrocomprobante = :nrocomprobante")
-    , @NamedQuery(name = "Comprobantepago.findByCodcliente", query = "SELECT t FROM Comprobantepago t WHERE t.codcliente = :codcliente")
-    , @NamedQuery(name = "Comprobantepago.findByFechahora", query = "SELECT t FROM Comprobantepago t WHERE t.fechahora = :fechahora")
-    , @NamedQuery(name = "Comprobantepago.findByEstado", query = "SELECT t FROM Comprobantepago t WHERE t.estado = :estado")
-    , @NamedQuery(name = "Comprobantepago.findByFechavencimiento", query = "SELECT t FROM Comprobantepago t WHERE t.fechavencimiento = :fechavencimiento")
-    , @NamedQuery(name = "Comprobantepago.findByImportepagado", query = "SELECT t FROM Comprobantepago t WHERE t.importepagado = :importepagado")
-    , @NamedQuery(name = "Comprobantepago.findByImporteporpagar", query = "SELECT t FROM Comprobantepago t WHERE t.importeporpagar = :importeporpagar")
-    , @NamedQuery(name = "Comprobantepago.findByImportetotal", query = "SELECT t FROM Comprobantepago t WHERE t.importetotal = :importetotal")})
+    @NamedQuery(name = "Comprobantepago.findAll", query = "SELECT c FROM Comprobantepago c")
+    , @NamedQuery(name = "Comprobantepago.findByNrocomprobante", query = "SELECT c FROM Comprobantepago c WHERE c.nrocomprobante = :nrocomprobante")
+    , @NamedQuery(name = "Comprobantepago.findByFechahora", query = "SELECT c FROM Comprobantepago c WHERE c.fechahora = :fechahora")
+    , @NamedQuery(name = "Comprobantepago.findByEstado", query = "SELECT c FROM Comprobantepago c WHERE c.estado = :estado")
+    , @NamedQuery(name = "Comprobantepago.findByFechavencimiento", query = "SELECT c FROM Comprobantepago c WHERE c.fechavencimiento = :fechavencimiento")
+    , @NamedQuery(name = "Comprobantepago.findByImportepagado", query = "SELECT c FROM Comprobantepago c WHERE c.importepagado = :importepagado")
+    , @NamedQuery(name = "Comprobantepago.findByImporteporpagar", query = "SELECT c FROM Comprobantepago c WHERE c.importeporpagar = :importeporpagar")
+    , @NamedQuery(name = "Comprobantepago.findByImportetotal", query = "SELECT c FROM Comprobantepago c WHERE c.importetotal = :importetotal")})
 public class Comprobantepago implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -53,11 +53,6 @@ public class Comprobantepago implements Serializable {
     @Size(min = 1, max = 8)
     @Column(name = "nrocomprobante")
     private String nrocomprobante;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 11)
-    @Column(name = "codcliente")
-    private String codcliente;
     @Column(name = "fechahora")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechahora;
@@ -74,6 +69,11 @@ public class Comprobantepago implements Serializable {
     private BigDecimal importeporpagar;
     @Column(name = "importetotal")
     private BigDecimal importetotal;
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "nrocomprobante")
+    private Guiaremision guiaremision;
+    @JoinColumn(name = "codcliente", referencedColumnName = "RUC")
+    @ManyToOne(optional = false)
+    private Cliente codcliente;
     @JoinColumn(name = "codmoneda", referencedColumnName = "codelemento")
     @ManyToOne(optional = false)
     private Miscelaneos codmoneda;
@@ -83,8 +83,9 @@ public class Comprobantepago implements Serializable {
     @JoinColumn(name = "codtipopago", referencedColumnName = "codelemento")
     @ManyToOne(optional = false)
     private Miscelaneos codtipopago;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tbComprobantepago")
-    private Collection<ComprobantepagoDetalle> tbComprobantepagoDetalleCollection;
+    
+    @Transient
+    private List<DtoComprobanteDetalle> detalle;
 
     public Comprobantepago() {
     }
@@ -93,25 +94,12 @@ public class Comprobantepago implements Serializable {
         this.nrocomprobante = nrocomprobante;
     }
 
-    public Comprobantepago(String nrocomprobante, String codcliente) {
-        this.nrocomprobante = nrocomprobante;
-        this.codcliente = codcliente;
-    }
-
     public String getNrocomprobante() {
         return nrocomprobante;
     }
 
     public void setNrocomprobante(String nrocomprobante) {
         this.nrocomprobante = nrocomprobante;
-    }
-
-    public String getCodcliente() {
-        return codcliente;
-    }
-
-    public void setCodcliente(String codcliente) {
-        this.codcliente = codcliente;
     }
 
     public Date getFechahora() {
@@ -162,6 +150,22 @@ public class Comprobantepago implements Serializable {
         this.importetotal = importetotal;
     }
 
+    public Guiaremision getGuiaremision() {
+        return guiaremision;
+    }
+
+    public void setGuiaremision(Guiaremision guiaremision) {
+        this.guiaremision = guiaremision;
+    }
+
+    public Cliente getCodcliente() {
+        return codcliente;
+    }
+
+    public void setCodcliente(Cliente codcliente) {
+        this.codcliente = codcliente;
+    }
+
     public Miscelaneos getCodmoneda() {
         return codmoneda;
     }
@@ -186,15 +190,15 @@ public class Comprobantepago implements Serializable {
         this.codtipopago = codtipopago;
     }
 
-    @XmlTransient
-    public Collection<ComprobantepagoDetalle> getComprobantepagoDetalleCollection() {
-        return tbComprobantepagoDetalleCollection;
+    public List<DtoComprobanteDetalle> getDetalle() {
+        return detalle;
     }
 
-    public void setComprobantepagoDetalleCollection(Collection<ComprobantepagoDetalle> tbComprobantepagoDetalleCollection) {
-        this.tbComprobantepagoDetalleCollection = tbComprobantepagoDetalleCollection;
+    public void setDetalle(List<DtoComprobanteDetalle> detalle) {
+        this.detalle = detalle;
     }
 
+    
     @Override
     public int hashCode() {
         int hash = 0;
